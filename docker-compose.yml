@@ -1,32 +1,27 @@
-version: "3.6"
+version: "4.4"
 services:
-  restapi:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    container_name: my_restapi
-    environment:
-      DB_USER: devuser
-      DB_PWD: devuser
-      DB_NAME: articleChoice
-      DB_HOST: my_mongodb
-      DB_PORT: 27017
-      CORS_ORIGINS: '*'
-    volumes:
-      - ./data/applogs:/tmp/logs
-    ports:
-      - 8080:8080
-    depends_on:
-      - mongo-database
-  mongo-database:
-    image: mongo
-    container_name: my_mongodb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: articleChoice
-    volumes:
-      - ./init-mongo.js/:/docker-entrypoint-init.b.d/init-mongo.js:ro
-      - ./data/mongodb:/data/db
-    ports:
-      - 27017:27017
+  mongodb:
+      image: mongo
+      container_name: mongodb
+      ports:
+        - 27017:27017
+      volumes:
+        - data:/data
+      environment:
+        - MONGO_INITDB_ROOT_USERNAME=rootuser
+        - MONGO_INITDB_ROOT_PASSWORD=rootpass
+  mongo-express:
+      image: mongo-express
+      container_name: mongo-express
+      restart: always
+      ports:
+        - 8081:8081
+      environment:
+        - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+        - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+        - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes:
+    data: {}
+networks:
+    default:
+        name: mongodb_network
