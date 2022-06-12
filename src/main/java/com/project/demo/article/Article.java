@@ -1,6 +1,6 @@
 package com.project.demo.article;
 
-public class article {
+public class Article {
     private Long id;
     private String articleName;
     private String author;
@@ -12,10 +12,10 @@ public class article {
     private String date;
     private String publishDate;
 
-    public article() {
+    public Article() {
     }
 
-    public article(Long id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
+    public Article(Long id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
         this.id = id;
         this.articleName = articleName;
         this.author = author;
@@ -28,7 +28,7 @@ public class article {
         this.publishDate = publishDate;
     }
 
-    public article(String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
+    public Article(String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
         this.articleName = articleName;
         this.author = author;
         this.description = description;
