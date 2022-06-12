@@ -14,8 +14,29 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @GetMapping("/hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
+    @GetMapping
+    public List<article> hello() {
+        return List.of(
+                new article(
+                        1L,
+                        "How to build a startup",
+                        "Jane Austen",
+                        "In-depth look on how to build your own startup",
+                        "Forbes",
+                        "startup",
+                        "business",
+                        "website",
+                        "January 21st, 2022",
+                        "June 11th, 2022"
+
+                )
+
+        );
+
     }
 }
+
+
+
+
+
