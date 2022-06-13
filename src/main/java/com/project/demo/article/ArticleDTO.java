@@ -1,20 +1,9 @@
 package com.project.demo.article;
 
-import com.mongodb.annotations.Immutable;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.List;
 
-@Immutable
-@EntityScan
-@Document(collection = "articledatabase")
-public class Article {
+public class ArticleDTO {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "article_sequence";
-
-    @Id
     private Long id;
     private String articleName;
     private String author;
@@ -26,9 +15,11 @@ public class Article {
     private String date;
     private String publishDate;
 
-    public Article(Long id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
+    public ArticleDTO() {
 
-        super();
+    }
+
+    public ArticleDTO(Long id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
         this.id = id;
         this.articleName = articleName;
         this.author = author;
@@ -39,18 +30,7 @@ public class Article {
         this.source = source;
         this.date = date;
         this.publishDate = publishDate;
-    }
 
-    public Article(String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
-        this.articleName = articleName;
-        this.author = author;
-        this.description = description;
-        this.hashtags = hashtags;
-        this.newsKeywords = newsKeywords;
-        this.channelSection = channelSection;
-        this.source = source;
-        this.date = date;
-        this.publishDate = publishDate;
     }
 
     public Long getId() {
@@ -133,19 +113,4 @@ public class Article {
         this.publishDate = publishDate;
     }
 
-    @Override
-    public String toString() {
-        return "article{" +
-                "id=" + id +
-                ", articleName='" + articleName + '\'' +
-                ", author='" + author + '\'' +
-                ", description='" + description + '\'' +
-                ", hashtags='" + hashtags + '\'' +
-                ", newsKeywords='" + newsKeywords + '\'' +
-                ", channelSection='" + channelSection + '\'' +
-                ", source='" + source + '\'' +
-                ", date='" + date + '\'' +
-                ", publishDate='" + publishDate + '\'' +
-                '}';
-    }
 }
