@@ -1,6 +1,20 @@
 package com.project.demo.article;
 
+import com.mongodb.annotations.Immutable;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Immutable
+@EntityScan
+@Document(collection = "articledatabase")
 public class Article {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "article_sequence";
+
+    @Id
     private Long id;
     private String articleName;
     private String author;
