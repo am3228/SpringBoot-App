@@ -5,7 +5,7 @@ import java.util.List;
 
 @Service
 public class ArticleService {
-    public List<Article> getArticle() {
+    public List<Article> findAll() {
         return List.of(
                 new Article(
                         1L,
