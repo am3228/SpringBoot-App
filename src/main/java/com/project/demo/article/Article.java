@@ -15,7 +15,7 @@ public class Article {
     public static final String SEQUENCE_NAME = "article_sequence";
 
     @Id
-    private Long id;
+    private String id;
     private String articleName;
     private String author;
     private String description;
@@ -26,7 +26,7 @@ public class Article {
     private String date;
     private String publishDate;
 
-    public Article(Long id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
+    public Article(String id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
 
         super();
         this.id = id;
@@ -53,11 +53,11 @@ public class Article {
         this.publishDate = publishDate;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

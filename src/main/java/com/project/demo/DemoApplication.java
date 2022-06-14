@@ -1,11 +1,10 @@
 package com.project.demo;
 
 import com.project.demo.article.Article;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -14,29 +13,26 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @GetMapping
-    public List<Article> findAll() {
-        return List.of(
-                new Article(
-                        1L,
-                        "How to build a startup",
-                        "Jane Austen",
-                        "In-depth look on how to build your own startup",
-                        "Forbes",
-                        "startup",
-                        "business",
-                        "website",
-                        "January 21st, 2022",
-                        "June 11th, 2022"
+    @Bean
+    CommandLineRunner runner(ArticleRepository repository) {
+        return args -> {
+          Article article = new Article(
+                  "A guide on re-creating your resume",
+                  "Clark Sky",
+                  "This articles gives the reader an in-depth look on how to build upon one's resume",
+                  "resume",
+                  "career",
+                  "Professional",
+                  "current employees",
+                  "Feb. 11, 2022",
+                  "June 12, 2022"
 
-                )
+          );
 
-        );
+          repository.insert(article);
+
+        };
+
     }
 
 }
-
-
-
-
-

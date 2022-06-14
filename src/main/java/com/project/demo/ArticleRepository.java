@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ArticleRepository extends MongoRepository<Article, String> {
 
-    Article findArticleById(Long id);
+    Article findArticleById(String id);
 
 }
