@@ -17,6 +17,14 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8081")
 public class ArticleController {
 
+    private final ArticleService articleService;
+
+    @Autowired
+    public ArticleController(ArticleService articleService) {
+        this.articleService = articleService;
+
+    }
+
     private Logger logger = LoggerFactory.getLogger(ArticleController.class);
     @Autowired
     private ArticleRepository articleRepository;
@@ -24,12 +32,12 @@ public class ArticleController {
     @GetMapping(value ="/")
     public List<Article> getAllArticles() {
         logger.info("Getting all articles.");
-        return articleRepository.findAll();
+        return articleService.findAll();
     }
 
     @GetMapping(value = "/{Id}")
     public Article
-    getArticleById(@PathVariable String Id) {
+    getArticleById(@PathVariable Long Id) {
         logger.info("Getting article with ID: {}", Id);
     articleRepository.findArticleById(Id);
         return null;
@@ -59,5 +67,3 @@ public class ArticleController {
     }
 
 }
-
-

@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk AS builder
+FROM openjdk:18-jdk AS builder
 WORKDIR /usr/build
 COPY src src
 COPY .mvn .mvn
