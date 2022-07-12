@@ -18,12 +18,12 @@ public class Article {
     private static String articleName;
     private static String author;
     private static String description;
-    private String hashtags;
-    private String newsKeywords;
-    private String channelSection;
-    private String source;
-    private String date;
-    private String publishDate;
+    private static String hashtags;
+    private static String newsKeywords;
+    private static String channelSection;
+    private static String source;
+    private static String date;
+    private static String publishDate;
 
     public Article(String id, String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
 
