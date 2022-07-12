@@ -95,7 +95,7 @@ public class Article {
         this.hashtags = hashtags;
     }
 
-    public String getNewsKeywords() {
+    public static String getNewsKeywords() {
         return newsKeywords;
     }
 
@@ -103,7 +103,7 @@ public class Article {
         this.newsKeywords = newsKeywords;
     }
 
-    public String getChannelSection() {
+    public static String getChannelSection() {
         return channelSection;
     }
 
@@ -111,7 +111,7 @@ public class Article {
         this.channelSection = channelSection;
     }
 
-    public String getSource() {
+    public static String getSource() {
         return source;
     }
 

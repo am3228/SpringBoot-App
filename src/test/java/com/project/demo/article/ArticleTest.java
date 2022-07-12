@@ -61,6 +61,8 @@ class ArticleTest {
 
     @Test
     void getNewsKeywords() {
+        String expectedNewsKeywords = "News";
+        Assertions.assertEquals(expectedNewsKeywords, Article.getNewsKeywords());
     }
 
     @Test
@@ -69,6 +71,8 @@ class ArticleTest {
 
     @Test
     void getChannelSection() {
+        String expectedChannelSection = "Breaking News";
+        Assertions.assertEquals(expectedChannelSection, Article.getChannelSection());
     }
 
     @Test
@@ -77,6 +81,8 @@ class ArticleTest {
 
     @Test
     void getSource() {
+        String expectedSource = "newspaper";
+        Assertions.assertEquals(expectedSource, Article.getSource());
     }
 
     @Test
