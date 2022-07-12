@@ -1,10 +1,6 @@
 package com.project.demo.article;
 
 import com.mongodb.annotations.Immutable;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -18,10 +14,10 @@ public class Article {
     @Transient
     public static final String SEQUENCE_NAME = "article_sequence";
     @Id
-    private String id;
+    private static String id;
     private static String articleName;
-    private String author;
-    private String description;
+    private static String author;
+    private static String description;
     private String hashtags;
     private String newsKeywords;
     private String channelSection;
@@ -75,7 +71,7 @@ public class Article {
         this.articleName = articleName;
     }
 
-    public String getAuthor() {
+    public static String getAuthor() {
         return author;
     }
 
@@ -83,7 +79,7 @@ public class Article {
         this.author = author;
     }
 
-    public String getDescription() {
+    public static String getDescription() {
         return description;
     }
 
@@ -91,7 +87,7 @@ public class Article {
         this.description = description;
     }
 
-    public String getHashtags() {
+    public static String getHashtags() {
         return hashtags;
     }
 

@@ -1,8 +1,7 @@
 package com.project.demo.article;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.*;
 
 class ArticleTest {
 
@@ -11,7 +10,7 @@ class ArticleTest {
     @Test
     public void getIdWorking() {
         String expectedID = "1";
-        assertEquals(expectedID, Article.getId());
+        Assertions.assertEquals(expectedID, Article.getId());
     }
 
     @Test
@@ -20,26 +19,30 @@ class ArticleTest {
     }
 
     @Test
-    void getArticleName() {
+    public void getArticleName() {
         String expectedArticle = "Article about Harry";
-        assertEquals(expectedArticle, Article.getArticleName());
+        Assertions.assertEquals(expectedArticle, Article.getArticleName());
     }
 
     @Test
-    void setArticleName() {
+    public void setArticleName() {
     }
 
     @Test
-    void getAuthor() {
+    public void getAuthor() {
+        String expectedAuthor = "Jane Austen";
+        Assertions.assertEquals(expectedAuthor, Article.getAuthor());
 
     }
 
     @Test
-    void setAuthor() {
+    public void setAuthor() {
     }
 
     @Test
-    void getDescription() {
+    public void getDescription() {
+        String expectedDescription = "Describing Forbes";
+        Assertions.assertEquals(expectedDescription, Article.getDescription());
     }
 
     @Test
@@ -48,6 +51,8 @@ class ArticleTest {
 
     @Test
     void getHashtags() {
+        String expectedHashtags = "Rich Wizard";
+        Assertions.assertEquals(expectedHashtags, Article.getHashtags());
     }
 
     @Test
