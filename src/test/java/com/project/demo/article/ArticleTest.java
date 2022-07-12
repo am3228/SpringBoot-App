@@ -91,6 +91,8 @@ class ArticleTest {
 
     @Test
     void getDate() {
+        String expectedDate = "January 11th, 2022";
+        Assertions.assertEquals(expectedDate, Article.getDate());
     }
 
     @Test
@@ -99,6 +101,8 @@ class ArticleTest {
 
     @Test
     void getPublishDate() {
+        String expectedPublishDate = "October 16th, 2002";
+        Assertions.assertEquals(expectedPublishDate, Article.getPublishDate());
     }
 
     @Test

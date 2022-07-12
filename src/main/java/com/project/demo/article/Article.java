@@ -119,7 +119,7 @@ public class Article {
         this.source = source;
     }
 
-    public String getDate() {
+    public static String getDate() {
         return date;
     }
 
@@ -127,7 +127,7 @@ public class Article {
         this.date = date;
     }
 
-    public String getPublishDate() {
+    public static String getPublishDate() {
         return publishDate;
     }
 
