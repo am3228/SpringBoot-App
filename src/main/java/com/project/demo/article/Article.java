@@ -19,7 +19,7 @@ public class Article {
     public static final String SEQUENCE_NAME = "article_sequence";
     @Id
     private String id;
-    private String articleName;
+    private static String articleName;
     private String author;
     private String description;
     private String hashtags;
@@ -55,7 +55,11 @@ public class Article {
         this.publishDate = publishDate;
     }
 
-    public String getId() {
+    public Article() {
+
+    }
+
+    public static String getId() {
         return id;
     }
 
@@ -63,7 +67,7 @@ public class Article {
         this.id = id;
     }
 
-    public String getArticleName() {
+    public static String getArticleName() {
         return articleName;
     }
 
