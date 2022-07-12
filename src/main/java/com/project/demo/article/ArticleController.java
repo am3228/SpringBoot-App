@@ -11,28 +11,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 
-
 @RestController
+@RequestMapping
 public class ArticleController {
 
     private final ArticleService articleService;
-
     @Autowired
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
 
     }
-
     private Logger logger = LoggerFactory.getLogger(ArticleController.class);
     @Autowired
     private ArticleRepository articleRepository;
-
-    @GetMapping(value ="/")
+    @GetMapping(value ="/api")
     public List<Article> getAllArticles() {
         logger.info("Getting all articles.");
         return articleService.findAll();
     }
-
     @GetMapping(value = "/{Id}")
     public Article
     getArticleById(@PathVariable String Id) {
@@ -40,14 +36,12 @@ public class ArticleController {
     articleRepository.findArticleById(String.valueOf(Id));
         return null;
     }
-
-    @PostMapping(value = "/create")
+    @PostMapping(value = "/saving")
     public Article addArticle(@RequestBody Article article) {
         logger.info("Saving article.");
     articleRepository.save(article);
     return article;
     }
-
     @PutMapping(value = "/update/{Id}")
     public Article
     updateArticle(@PathVariable String Id, @RequestBody Article article) {
@@ -55,7 +49,6 @@ public class ArticleController {
         return
     articleRepository.save(article);
     }
-
     @DeleteMapping(value = "/delete/{Id}")
     public void
     deleteArticle(@PathVariable String Id) {

@@ -1,19 +1,22 @@
 package com.project.demo.article;
 
 import com.mongodb.annotations.Immutable;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Immutable
 @EntityScan
 @Document(collection = "articledatabase")
 public class Article {
-
     @Transient
     public static final String SEQUENCE_NAME = "article_sequence";
-
     @Id
     private String id;
     private String articleName;
@@ -40,7 +43,6 @@ public class Article {
         this.date = date;
         this.publishDate = publishDate;
     }
-
     public Article(String articleName, String author, String description, String hashtags, String newsKeywords, String channelSection, String source, String date, String publishDate) {
         this.articleName = articleName;
         this.author = author;
@@ -135,8 +137,8 @@ public class Article {
 
     @Override
     public String toString() {
-        return "article{" +
-                "id=" + id +
+        return "Article{" +
+                "id='" + id + '\'' +
                 ", articleName='" + articleName + '\'' +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
